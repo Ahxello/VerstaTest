@@ -1,8 +1,59 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using VerstaTest.Models
+@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Versta Test";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<partial name="_Notification" />
+<div class="container p-3">
+    <div class="pt-4">
+        <div class="col-15 text-end">
+            <a asp-controller="Home" asp-action="Create" class="btn btn-outline-success">
+                <i class="bi bi-plus-square"></i> Создать новый заказ
+            </a>
+        </div>
+    </div>
 </div>
+<div class="o-table-header">
+    <p>Номер заказа</p>
+    <p>Город отправителя</p>
+    <p>Адрес отправителя</p>
+    <p>Город получателя</p>
+    <p>Адрес получателя</p>
+    <p>Вес груза</p>
+    <p>Дата забора груза</p>
+</div>
+@foreach (var obj in Model)
+{
+    <div class="o-table">
+        <div class="ordercontainer">
+            <a class="order" asp-controller="Home" asp-action="CheckOrder" asp-route-id="@obj.Id">
+                <div class="orderid">
+                    <p>@obj.OrderId</p>
+                </div>
+
+                <div class="sendcity">
+                    <p class="sendcity">@obj.SenderCity</p>
+                </div>
+                <div class="sendaddr">
+                    <p class="sendaddr">@obj.SenderAddress</p>
+                </div>
+                <div class="reccity">
+                    <p class="reccity">@obj.RecipientCity</p>
+                </div>
+                <div class="recaddr">
+                    <p class="recaddr">@obj.RecipientAddress</p>
+                </div>
+                <div class="orderweight">
+                    <p class="orderweight">@obj.Weight</p>
+                </div>
+                <div class="dateofpickup">
+                    <p class="dateofpickup">@obj.DateOfPickup</p>
+                </div>
+
+                
+            </a>
+
+        </div>
+    </div>
+
+}

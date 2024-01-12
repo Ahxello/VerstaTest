@@ -1,32 +1,48 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using VerstaTest.Data;
 using VerstaTest.Models;
 
 namespace VerstaTest.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Order> orders = _db.Orders.ToList();
+            return View(orders);
         }
-
-        public IActionResult Privacy()
+        public IActionResult Create()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Order obj)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                obj.OrderId = Guid.NewGuid();
+                _db.Orders.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Заказ создан успешно";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+        public IActionResult CheckOrder(Guid? id)
+        {
+            if (id == null || id == Guid.Empty) { return NotFound(); }
+            var orderFromDb = _db.Orders.Find(id);
+            if (orderFromDb == null) { return NotFound(); }
+            return View(orderFromDb);
         }
     }
 }

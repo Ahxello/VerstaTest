@@ -12,7 +12,7 @@ namespace VerstaTest
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer("MSSQL"));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL")));
 
             var app = builder.Build();
 

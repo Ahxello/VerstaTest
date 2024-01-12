@@ -1,0 +1,44 @@
+﻿@model Order
+<form method="post" asp-action="CheckOrder">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary text-dark">Закакз № @Model.OrderId</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="OrderId">Номер заказа</label>
+            <input class ="form__field" asp-for="OrderId" disabled class="form-control" />
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="SenderCity">Город отправителя</label>
+            <input class="form__field" asp-for="SenderCity" disabled class="form-control" />
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="SenderAddress">Адрес отправителя</label>
+            <input class="form__field" asp-for="SenderAddress" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="RecipientCity">Город получателя</label>
+            <input class="form__field" asp-for="RecipientCity" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="RecipientAddress">Адрес получателя</label>
+            <input class="form__field" asp-for="RecipientAddress" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Weight">Вес груза</label>
+            <input class="form__field" asp-for="Weight" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="DateOfPickup">Дата забора груза</label>
+            <input class="form__field" asp-for="DateOfPickup" disabled class="form-control" />
+        </div>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary" style="width:250px;">
+            Вернуться к списку заказов
+        </a>
+    </div>
+
+</form>

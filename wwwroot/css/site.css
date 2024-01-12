@@ -7,16 +7,86 @@ html {
     font-size: 16px;
   }
 }
-
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #fefefe;
+    
+    font-family: 'Nunito', sans-serif;
+}
+.ordercontainer {
+    display: grid;
+    grid-template-columns: 5fr 5fr 5fr 5fr 5fr 5fr 5fr;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+.o-table-header {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+
+}
+.o-table .order {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+    height: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    -webkit-filter: brightness(100%);
+    transition: .5s;
+    background-color:white;
+    margin:2px;
+    border:2px solid;
+
+}
+.o-table .order:hover {
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+form{
+    background-color:white;
+    border:0
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    outline: 0;
+    outline-offset: 0;
+    border:0;
+    border-bottom: 2px solid black;
+}
+input:hover{
+    -webkit-transition: all 0.2s ;
+    -moz-transition: all 0.2s ;
+    -o-transition: all 0.2s ;
+    transition: all 0.2s ;
+    outline:0;
+    outline-offset:0;
+}
+input:focus {
+    border: 3px solid #555;
+    outline:0;
+    outline-offset:0;
 }

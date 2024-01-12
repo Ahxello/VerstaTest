@@ -1,0 +1,52 @@
+﻿﻿﻿
+@model Order
+<form method="post">
+    <div class="form-group border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary text-black align-items-center">Создание заказа</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="field mb-3">
+            <label asp-for="SenderCity">Город отправителя</label>
+            <input class="form__field" asp-for="SenderCity" class="form-control" />
+            <span asp-validation-for="SenderCity" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="SenderAddress">Адрес отправителя</label>
+            <input type="text" class="form__field" asp-for="SenderAddress" class="form-control" />
+            <span asp-validation-for="SenderAddress" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="RecipientCity">Город получателя</label>
+            <input class="form__field" asp-for="RecipientCity" class="form-control" />
+            <span asp-validation-for="RecipientCity" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="RecipientAddress">Адрес получателя</label>
+            <input class="form__field" asp-for="RecipientAddress" class="form-control" />
+            <span asp-validation-for="RecipientAddress" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Weight">Вес груза</label>
+            <input class ="form__field" asp-for="Weight" class="form-control" />
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+        <div class=" field mb-3 ">
+            <label asp-for="DateOfPickup">Дата забора груза</label>
+            <input class ="form__field" asp-for="DateOfPickup" class="form-control" />
+            <span asp-validation-for="DateOfPickup" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-success" style="width:150px">Create</button>
+        <a asp-controller="Home" asp-action="Index" class="h-25 btn btn-outline-secondary" style="width:200px">
+            Вернуться к списку
+        </a>
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

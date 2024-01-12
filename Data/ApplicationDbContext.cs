@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VerstaTest.Models;
 
 namespace VerstaTest.Data
 {
@@ -6,7 +7,7 @@ namespace VerstaTest.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-                Database.EnsureCreated();
         }
+        public DbSet<Order> Orders { get; set; }
     }
 }
