@@ -5,7 +5,7 @@
 ```
 "Data Source=localhost;Initial Catalog=VerstaTest;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
 ```
-### ѕосле запуска проекта в  онсоле ƒиспетчера пакетов обновите базу данных дл€ применени€ миграций, использу€ команду:
+### ѕосле запуска проекта в консоле диспетчера пакетов обновите базу данных дл€ применени€ миграций, использу€ команду:
 ```
 Update-Database
 ```
